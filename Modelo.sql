@@ -11,13 +11,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `prod` DEFAULT CHARACTER SET utf8 ;
+USE `prod` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Pinateca`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Pinateca` (
+CREATE TABLE IF NOT EXISTS `prod`.`Pinateca` (
   `idPinateca` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
   `ciudad` VARCHAR(45) NULL,
@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`MaestrosPintor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`MaestrosPintor` (
+CREATE TABLE IF NOT EXISTS `prod`.`MaestrosPintor` (
   `idMaestrosPintor` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
   `pais` VARCHAR(45) NULL,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`MaestrosPintor` (
   INDEX `fk_MaestrosPintor_Pintor1_idx` (`idPintor` ASC),
   CONSTRAINT `fk_MaestrosPintor_Pintor1`
     FOREIGN KEY (`idPintor`)
-    REFERENCES `mydb`.`Pintor` (`idPintor`)
+    REFERENCES `prod`.`Pintor` (`idPintor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -53,7 +53,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Escuela`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Escuela` (
+CREATE TABLE IF NOT EXISTS `prod`.`Escuela` (
   `idEscuela` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
   `pais` VARCHAR(45) NULL,
@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Mecenas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Mecenas` (
+CREATE TABLE IF NOT EXISTS `prod`.`Mecenas` (
   `idMecenas` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
   `pais` VARCHAR(45) NULL,
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Mecenas` (
   INDEX `fk_Mecenas_Pintor1_idx` (`idPintor` ASC),
   CONSTRAINT `fk_Mecenas_Pintor1`
     FOREIGN KEY (`idPintor`)
-    REFERENCES `mydb`.`Pintor` (`idPintor`)
+    REFERENCES `prod`.`Pintor` (`idPintor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -87,7 +87,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Pintor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Pintor` (
+CREATE TABLE IF NOT EXISTS `prod`.`Pintor` (
   `idPintor` INT NOT NULL,
   `nombre` VARCHAR(45) NULL,
   `pais` VARCHAR(45) NULL,
@@ -104,17 +104,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Pintor` (
   INDEX `fk_Pintor_Mecenas1_idx` (`idMecenas` ASC),
   CONSTRAINT `fk_Pintor_MaestrosPintor1`
     FOREIGN KEY (`idMaestrosPintor`)
-    REFERENCES `mydb`.`MaestrosPintor` (`idMaestrosPintor`)
+    REFERENCES `prod`.`MaestrosPintor` (`idMaestrosPintor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Pintor_Escuela1`
     FOREIGN KEY (`idEscuela`)
-    REFERENCES `mydb`.`Escuela` (`idEscuela`)
+    REFERENCES `prod`.`Escuela` (`idEscuela`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Pintor_Mecenas1`
     FOREIGN KEY (`idMecenas`)
-    REFERENCES `mydb`.`Mecenas` (`idMecenas`)
+    REFERENCES `prod`.`Mecenas` (`idMecenas`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -123,7 +123,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Cuadros`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Cuadros` (
+CREATE TABLE IF NOT EXISTS `prod`.`Cuadros` (
   `idCuadros` INT NOT NULL,
   `codigo` VARCHAR(45) NULL,
   `nombre` VARCHAR(45) NULL,
@@ -137,14 +137,26 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Cuadros` (
   INDEX `fk_Cuadros_Pintor1_idx` (`idPintor` ASC),
   CONSTRAINT `fk_Cuadros_Pinateca1`
     FOREIGN KEY (`idPinateca`)
-    REFERENCES `mydb`.`Pinateca` (`idPinateca`)
+    REFERENCES `prod`.`Pinateca` (`idPinateca`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Cuadros_Pintor1`
     FOREIGN KEY (`idPintor`)
-    REFERENCES `mydb`.`Pintor` (`idPintor`)
+    REFERENCES `prod`.`Pintor` (`idPintor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`administrador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `prod`.`administrador` (
+  `idadministrador` INT NOT NULL,
+  `nombre` VARCHAR(45) NULL,
+  `login` VARCHAR(45) NULL,
+  `clave` VARCHAR(45) NULL,
+  PRIMARY KEY (`idadministrador`))
 ENGINE = InnoDB;
 
 
