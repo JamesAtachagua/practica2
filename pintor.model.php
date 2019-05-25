@@ -103,7 +103,7 @@ class PintorModel
 						nombre        = ?,
 						pais          = ?, 
 						fechaNacimiento        = ?,
-						fechaFallecimiento           = ?
+						fechaFallecimiento           = ?,
 						idMaestrosPintor          = ?, 
 						idEscuela        = ?,
 						idMecenas           = ?
@@ -118,9 +118,6 @@ class PintorModel
 					$data->__GET('pais'),
 					$data->__GET('fechaNacimiento'), 
 					$data->__GET('fechaFallecimiento'),
-					$data->__GET('idMaestrosPintor'),
-					$data->__GET('idEscuela'), 
-					$data->__GET('idMecenas'),
 					$data->__GET('foto'),
 					$data->__GET('idPintor')
 					)
