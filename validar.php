@@ -24,7 +24,7 @@
 			$stm->execute();
 			$r = $stm->fetch(PDO::FETCH_OBJ);
 
-			$us = $r->usuario;
+			$us = $r->login;
 			$ca = $r->clave;
 
 			if ($usuario == $us and $clave == $clave){

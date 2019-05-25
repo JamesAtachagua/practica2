@@ -6,25 +6,6 @@
 	</head>
     <body style="padding:15px;">
 
-<div>
-    <a href="alumno.php">Alumnos</a>
-</div>
-
-<div>
-<a href="usuario.php">usuarios</a>
-</div>
-              
-<div>
-<a href="usuario.php">USER</a>
-</div>
-
-<div>
-<a href="curso.php">Curso</a>
-</div>
-
-<div>
-<a href="producto.php">Producto</a>
-</div>
 
 <div>
 <a href="pintor.php">Pintor</a>
