@@ -1,14 +1,14 @@
 
 <?php 
 
-	$usuario=$_POST['usuario'];
-	$clave=$_POST['clave'];
+	$usuario = $_POST['usuario'];
+	$clave = $_POST['clave'];
 	$pdo;
 
 	// coneccion con la base da datos
 		try
 		{
-			$pdo = new PDO('mysql:host=localhost:3306;dbname=acad', 'utec', 'utec');
+			$pdo = new PDO('mysql:host=localhost:3306;dbname= mydb', 'utec', 'utec');
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);		        
 		}
 		catch(Exception $e)
@@ -18,7 +18,7 @@
 		try 
 		{
 			$stm = $pdo
-			          ->prepare("SELECT * FROM user WHERE usuario = '$usuario' and clave = '$clave'");
+			          ->prepare("SELECT * FROM administrador WHERE login = '$usuario' and clave = '$clave'");
 			          
 
 			$stm->execute();
