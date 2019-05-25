@@ -34,6 +34,9 @@ class PintorModel
 				$vo->__SET('pais', $r->pais);
 				$vo->__SET('fechaNacimiento', $r->fechaNacimiento);
 				$vo->__SET('fechaFallecimiento', $r->fechaFallecimiento);
+				$vo->__SET('idMaestrosPintor', $r->idMaestrosPintor);
+				$vo->__SET('idEscuela', $r->idEscuela);
+				$vo->__SET('idMecenas', $r->idMecenas);
 				$vo->__SET('foto', $r->foto);
 
 				$result[] = $vo;
@@ -65,6 +68,9 @@ class PintorModel
 			$vo->__SET('pais', $r->pais);
 			$vo->__SET('fechaNacimiento', $r->fechaNacimiento);
 			$vo->__SET('fechaFallecimiento', $r->fechaFallecimiento);
+			$vo->__SET('idMaestrosPintor', $r->idMaestrosPintor);
+			$vo->__SET('idEscuela', $r->idEscuela);
+			$vo->__SET('idMecenas', $r->idMecenas);
 			$vo->__SET('foto', $r->foto);
 
 			return $vo;
@@ -98,6 +104,9 @@ class PintorModel
 						pais          = ?, 
 						fechaNacimiento        = ?,
 						fechaFallecimiento           = ?
+						idMaestrosPintor          = ?, 
+						idEscuela        = ?,
+						idMecenas           = ?
 						foto           = ?
 				    WHERE idPintor = ?";
 
@@ -109,6 +118,9 @@ class PintorModel
 					$data->__GET('pais'),
 					$data->__GET('fechaNacimiento'), 
 					$data->__GET('fechaFallecimiento'),
+					$data->__GET('idMaestrosPintor'),
+					$data->__GET('idEscuela'), 
+					$data->__GET('idMecenas'),
 					$data->__GET('foto'),
 					$data->__GET('idPintor')
 					)
@@ -123,8 +135,8 @@ class PintorModel
 	{
 		try 
 		{
-		$sql = "INSERT INTO Pintor (idPintor,nombre,pais,fechaNacimiento,fechaFallecimiento,foto) 
-		        VALUES (?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO Pintor (idPintor,nombre,pais,fechaNacimiento,fechaFallecimiento,idMaestrosPintor,idEscuela,idMecenas,foto) 
+		        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -134,6 +146,9 @@ class PintorModel
 				$data->__GET('pais'),
 				$data->__GET('fechaNacimiento'), 
 				$data->__GET('fechaFallecimiento'),
+				$data->__GET('idMaestrosPintor'),
+				$data->__GET('idEscuela'), 
+				$data->__GET('idMecenas'),
 				$data->__GET('foto'),
 				)
 			);

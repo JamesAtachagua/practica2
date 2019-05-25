@@ -18,6 +18,9 @@ if(isset($_REQUEST['action']))
             $alm->__SET('pais',        $_REQUEST['pais']);
             $alm->__SET('fechaNacimiento',          $_REQUEST['fechaNacimiento']);
             $alm->__SET('fechaFallecimiento',          $_REQUEST['fechaFallecimiento']);
+            $alm->__SET('idMaestrosPintor',        $_REQUEST['idMaestrosPintor']);
+            $alm->__SET('idEscuela',          $_REQUEST['idEscuela']);
+            $alm->__SET('idMecenas',          $_REQUEST['idMecenas']);
 
             include('subir.php');
 
@@ -33,6 +36,9 @@ if(isset($_REQUEST['action']))
             $alm->__SET('pais',        $_REQUEST['pais']);
             $alm->__SET('fechaNacimiento',          $_REQUEST['fechaNacimiento']);
             $alm->__SET('fechaFallecimiento',          $_REQUEST['fechaFallecimiento']);
+            $alm->__SET('idMaestrosPintor',        $_REQUEST['idMaestrosPintor']);
+            $alm->__SET('idEscuela',          $_REQUEST['idEscuela']);
+            $alm->__SET('idMecenas',          $_REQUEST['idMecenas']);
 
             include('subir.php');
 
@@ -92,6 +98,21 @@ if(isset($_REQUEST['action']))
                             <td><input type="text" name="fechaFallecimiento" value="<?php echo $alm->__GET('fechaFallecimiento'); ?>" style="width:100%;" /></td>
                         </tr>
 
+                        <tr>
+                            <th style="text-align:left;">idMaestrosPintor</th>
+                            <td><input type="text" name="idMaestrosPintor" value="<?php echo $alm->__GET('idMaestrosPintor'); ?>" style="width:100%;" /></td>
+                        </tr>
+                        <tr>
+                            <th style="text-align:left;">idEscuela</th>
+                            <td><input type="text" name="idEscuela" value="<?php echo $alm->__GET('idEscuela'); ?>" style="width:100%;" /></td>
+                        </tr>
+
+                        <tr>
+                            <th style="text-align:left;">idMecenas</th>
+                            <td><input type="text" name="idMecenas" value="<?php echo $alm->__GET('idMecenas'); ?>" style="width:100%;" /></td>
+                        </tr>
+
+
                        
                             <tr>
                                 <td style="text-align:left;">Imagen</td>
@@ -115,6 +136,9 @@ if(isset($_REQUEST['action']))
                             <th style="text-align:left;">pais</th>
                             <th style="text-align:left;">fechaNacimiento</th>
                             <th style="text-align:left;">fechaFallecimiento</th>
+                            <th style="text-align:left;">idMaestrosPintor</th>
+                            <th style="text-align:left;">idEscuela</th>
+                            <th style="text-align:left;">idMecenas</th>
                             <th style="text-align:left;">Imagen</th>
                             <th></th>
                             <th></th>
@@ -127,6 +151,9 @@ if(isset($_REQUEST['action']))
                             <td><?php echo $r->__GET('pais'); ?></td>
                             <td><?php echo $r->__GET('fechaNacimiento'); ?></td>
                             <td><?php echo $r->__GET('fechaFallecimiento'); ?></td>
+                            <td><?php echo $r->__GET('idMaestrosPintor'); ?></td>
+                            <td><?php echo $r->__GET('idEscuela'); ?></td>
+                            <td><?php echo $r->__GET('idMecenas'); ?></td>
 
                             <td><img src="/imagen/<?php echo $r->__GET('imagen'); ?>" alt="Girl in a jacket" width="100" height="100">       </td>
 

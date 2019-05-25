@@ -6,6 +6,9 @@ class Pintor
 	private $pais;
 	private $fechaNacimiento;
 	private $fechaFallecimiento;
+	private $idMaestrosPintor;
+	private $idEscuela;
+	private $idMecenas;
 	private $foto;
 
 	public function __GET($k){ return $this->$k; }

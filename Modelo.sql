@@ -39,14 +39,7 @@ CREATE TABLE IF NOT EXISTS `prod`.`MaestrosPintor` (
   `ciudad` VARCHAR(45) NULL,
   `fechaNacimiento` VARCHAR(45) NULL,
   `fechaFallecimiento` VARCHAR(45) NULL,
-  `idPintor` INT NOT NULL,
-  PRIMARY KEY (`idMaestrosPintor`),
-  INDEX `fk_MaestrosPintor_Pintor1_idx` (`idPintor` ASC),
-  CONSTRAINT `fk_MaestrosPintor_Pintor1`
-    FOREIGN KEY (`idPintor`)
-    REFERENCES `prod`.`Pintor` (`idPintor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`idMaestrosPintor`))
 ENGINE = InnoDB;
 
 
@@ -73,14 +66,7 @@ CREATE TABLE IF NOT EXISTS `prod`.`Mecenas` (
   `fechaFallecimiento` DATE NULL,
   `fechaInicio` DATE NULL,
   `fechaFin` DATE NULL,
-  `idPintor` INT NOT NULL,
-  PRIMARY KEY (`idMecenas`),
-  INDEX `fk_Mecenas_Pintor1_idx` (`idPintor` ASC),
-  CONSTRAINT `fk_Mecenas_Pintor1`
-    FOREIGN KEY (`idPintor`)
-    REFERENCES `prod`.`Pintor` (`idPintor`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`idMecenas`))
 ENGINE = InnoDB;
 
 
