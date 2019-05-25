@@ -8,7 +8,7 @@
 	// coneccion con la base da datos
 		try
 		{
-			$pdo = new PDO('mysql:host=localhost:3306;dbname= mydb', 'utec', 'utec');
+			$pdo = new PDO('mysql:host=localhost:3306; dbname= mydb', 'utec', 'utec');
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);		        
 		}
 		catch(Exception $e)
