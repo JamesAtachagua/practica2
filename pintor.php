@@ -155,7 +155,7 @@ if(isset($_REQUEST['action']))
                             <td><?php echo $r->__GET('idEscuela'); ?></td>
                             <td><?php echo $r->__GET('idMecenas'); ?></td>
 
-                            <td><img src="/imagen/<?php echo $r->__GET('imagen'); ?>" alt="Girl in a jacket" width="100" height="100">       </td>
+                            <td><img src="/imagen/<?php echo $r->__GET('foto'); ?>" alt="Girl in a jacket" width="100" height="100">       </td>
 
 
                             <td>
