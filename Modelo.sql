@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Pinateca` (
   `metrosCuadrados` INT NULL,
   `cantidadCuadros` INT NULL,
   PRIMARY KEY (`idPinateca`),
-  UNIQUE INDEX `ciudad_UNIQUE` (`ciudad` ASC) VISIBLE)
+  UNIQUE INDEX `ciudad_UNIQUE` (`ciudad` ASC))
 ENGINE = InnoDB;
 
 
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`MaestrosPintor` (
   `fechaFallecimiento` VARCHAR(45) NULL,
   `idPintor` INT NOT NULL,
   PRIMARY KEY (`idMaestrosPintor`),
-  INDEX `fk_MaestrosPintor_Pintor1_idx` (`idPintor` ASC) VISIBLE,
+  INDEX `fk_MaestrosPintor_Pintor1_idx` (`idPintor` ASC),
   CONSTRAINT `fk_MaestrosPintor_Pintor1`
     FOREIGN KEY (`idPintor`)
     REFERENCES `mydb`.`Pintor` (`idPintor`)
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Mecenas` (
   `fechaFin` DATE NULL,
   `idPintor` INT NOT NULL,
   PRIMARY KEY (`idMecenas`),
-  INDEX `fk_Mecenas_Pintor1_idx` (`idPintor` ASC) VISIBLE,
+  INDEX `fk_Mecenas_Pintor1_idx` (`idPintor` ASC),
   CONSTRAINT `fk_Mecenas_Pintor1`
     FOREIGN KEY (`idPintor`)
     REFERENCES `mydb`.`Pintor` (`idPintor`)
@@ -99,9 +99,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Pintor` (
   `idMecenas` INT NOT NULL,
   `foto` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`idPintor`),
-  INDEX `fk_Pintor_MaestrosPintor1_idx` (`idMaestrosPintor` ASC) VISIBLE,
-  INDEX `fk_Pintor_Escuela1_idx` (`idEscuela` ASC) VISIBLE,
-  INDEX `fk_Pintor_Mecenas1_idx` (`idMecenas` ASC) VISIBLE,
+  INDEX `fk_Pintor_MaestrosPintor1_idx` (`idMaestrosPintor` ASC),
+  INDEX `fk_Pintor_Escuela1_idx` (`idEscuela` ASC),
+  INDEX `fk_Pintor_Mecenas1_idx` (`idMecenas` ASC),
   CONSTRAINT `fk_Pintor_MaestrosPintor1`
     FOREIGN KEY (`idMaestrosPintor`)
     REFERENCES `mydb`.`MaestrosPintor` (`idMaestrosPintor`)
@@ -133,8 +133,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Cuadros` (
   `idPinateca` INT NOT NULL,
   `idPintor` INT NOT NULL,
   PRIMARY KEY (`idCuadros`, `idPinateca`, `idPintor`),
-  INDEX `fk_Cuadros_Pinateca1_idx` (`idPinateca` ASC) VISIBLE,
-  INDEX `fk_Cuadros_Pintor1_idx` (`idPintor` ASC) VISIBLE,
+  INDEX `fk_Cuadros_Pinateca1_idx` (`idPinateca` ASC),
+  INDEX `fk_Cuadros_Pintor1_idx` (`idPintor` ASC),
   CONSTRAINT `fk_Cuadros_Pinateca1`
     FOREIGN KEY (`idPinateca`)
     REFERENCES `mydb`.`Pinateca` (`idPinateca`)
