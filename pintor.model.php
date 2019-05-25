@@ -106,7 +106,7 @@ class PintorModel
 						fechaFallecimiento           = ?,
 						idMaestrosPintor          = ?, 
 						idEscuela        = ?,
-						idMecenas           = ?
+						idMecenas           = ?,
 						foto           = ?
 				    WHERE idPintor = ?";
 
