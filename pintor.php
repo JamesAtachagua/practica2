@@ -159,10 +159,10 @@ if(isset($_REQUEST['action']))
 
 
                             <td>
-                                <a href="?action=editar&id=<?php echo $r->idPintor; ?>">Editar</a>
+                                <a href="?action=editar&idPintor=<?php echo $r->idPintor; ?>">Editar</a>
                             </td>
                             <td>
-                                <a href="?action=eliminar&id=<?php echo $r->idPintor; ?>">Eliminar</a>
+                                <a href="?action=eliminar&idPintor=<?php echo $r->idPintor; ?>">Eliminar</a>
                             </td>
 
                         </tr>
