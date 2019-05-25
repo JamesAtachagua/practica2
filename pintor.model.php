@@ -50,7 +50,7 @@ class PintorModel
 		}
 	}
 
-	public function Obtener($idPintor)
+	public function Obtener($id)
 	{
 		try 
 		{
@@ -58,7 +58,7 @@ class PintorModel
 			          ->prepare("SELECT * FROM Pintor WHERE idPintor = ?");
 			          
 
-			$stm->execute(array($idPintor));
+			$stm->execute(array($id));
 			$r = $stm->fetch(PDO::FETCH_OBJ);
 
 			$vo = new Pintor();
@@ -80,14 +80,14 @@ class PintorModel
 		}
 	}
 
-	public function Eliminar($idPintor)
+	public function Eliminar($id)
 	{
 		try 
 		{
 			$stm = $this->pdo
 			          ->prepare("DELETE FROM Pintor WHERE idPintor = ?");			          
 
-			$stm->execute(array($idPintor));
+			$stm->execute(array($id));
 		} catch (Exception $e) 
 		{
 			die($e->getMessage());
