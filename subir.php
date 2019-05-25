@@ -15,7 +15,7 @@
 	//echo $temp;
 
 
-	$carpeta_destino = $_SERVER['DOCUMENT_ROOT'].'/crud1/imagen/';
+	$carpeta_destino = $_SERVER['DOCUMENT_ROOT'].'/imagen/';
 
 	//echo $carpeta_destino;
 
